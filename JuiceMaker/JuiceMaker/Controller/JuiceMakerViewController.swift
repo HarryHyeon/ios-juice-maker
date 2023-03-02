@@ -33,7 +33,69 @@ final class JuiceMakerViewController: UIViewController, UpdateLabelsDelegate {
         
         defineDictionary()
         configureFruitCountLabels()
+        
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        applyAccessibilityToButton()
+        applyAccessibilityToLabel()
+    }
+    
+    func applyAccessibilityToButton() {
+        strawberryBananaJuiceButton.titleLabel?.adjustsFontForContentSizeCategory = true
+        strawberryBananaJuiceButton.titleLabel?.adjustsFontSizeToFitWidth = true
+        strawberryBananaJuiceButton.accessibilityLabel = "딸기쥬스 주문"
+        strawberryBananaJuiceButton.accessibilityHint = "딸기 10개 바나나 1개 사용"
+        
+        bananaJuiceButton.titleLabel?.adjustsFontForContentSizeCategory = true
+        bananaJuiceButton.titleLabel?.adjustsFontSizeToFitWidth = true
+        bananaJuiceButton.accessibilityLabel = "바나나쥬스 주문"
+        bananaJuiceButton.accessibilityHint = "바나나 2개 사용"
+        
+        kiwiJuiceButton.titleLabel?.adjustsFontForContentSizeCategory = true
+        kiwiJuiceButton.titleLabel?.adjustsFontSizeToFitWidth = true
+        kiwiJuiceButton.accessibilityLabel = "키위쥬스 주문"
+        kiwiJuiceButton.accessibilityHint = "키위 3개 사용"
+        
+        pineappleJuiceButton.titleLabel?.adjustsFontForContentSizeCategory = true
+        pineappleJuiceButton.titleLabel?.adjustsFontSizeToFitWidth = true
+        pineappleJuiceButton.accessibilityLabel = "파인애플쥬스 주문"
+        pineappleJuiceButton.accessibilityHint = "파인애플 2개 사용"
+        
+        strawberryJuiceButton.titleLabel?.adjustsFontForContentSizeCategory = true
+        strawberryJuiceButton.titleLabel?.adjustsFontSizeToFitWidth = true
+        strawberryJuiceButton.accessibilityLabel = "딸기쥬스 주문"
+        strawberryJuiceButton.accessibilityHint = "딸기 16개 사용"
+        
+        mangoJuiceButton.titleLabel?.adjustsFontForContentSizeCategory = true
+        mangoJuiceButton.titleLabel?.adjustsFontSizeToFitWidth = true
+        mangoJuiceButton.accessibilityLabel = "망고쥬스 주문"
+        mangoJuiceButton.accessibilityHint = "망고 3개 사용"
+        
+        mangoKiwiJuiceButton.titleLabel?.adjustsFontForContentSizeCategory = true
+        mangoKiwiJuiceButton.titleLabel?.adjustsFontSizeToFitWidth = true
+        mangoKiwiJuiceButton.accessibilityLabel = "망고키위쥬스 주문"
+        mangoKiwiJuiceButton.accessibilityHint = "망고 2개 키위 1개 사용"
+        
+    }
+    
+    func applyAccessibilityToLabel() {
+        strawberryCountLabel.accessibilityLabel = "딸기재고"
+        strawberryCountLabel.accessibilityValue = "\(fruitStore.getStockCountToString(of: .strawberry)!)개"
+        
+        bananaCountLabel.accessibilityLabel = "바나나재고"
+        bananaCountLabel.accessibilityValue = "\(fruitStore.getStockCountToString(of: .banana)!)개"
+        
+        mangoCountLabel.accessibilityLabel = "망고재고"
+        mangoCountLabel.accessibilityValue = "\(fruitStore.getStockCountToString(of: .mango)!)개"
+        
+        pineappleCountLabel.accessibilityLabel = "파인애플재고"
+        pineappleCountLabel.accessibilityValue = "\(fruitStore.getStockCountToString(of: .pineapple)!)개"
+        
+        kiwiCountLabel.accessibilityLabel = "키위재고"
+        kiwiCountLabel.accessibilityValue = "\(fruitStore.getStockCountToString(of: .kiwi)!)개"
+    }
+    
     
     @IBAction private func touchUpEditStockButton(_ sender: UIBarButtonItem) {
         presentStockManager()

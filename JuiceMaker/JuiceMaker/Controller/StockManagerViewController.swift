@@ -34,6 +34,24 @@ final class StockManagerViewController: UIViewController {
         defineDictionary()
         configureStepperCurrentValue()
         configureFruitCountLabels()
+        applyAccessibilityToLabel()
+    }
+    
+    func applyAccessibilityToLabel() {
+        strawberryCountLabel.accessibilityLabel = "딸기재고"
+        strawberryCountLabel.accessibilityValue = "\(fruitStore.getStockCountToString(of: .strawberry)!)개"
+        
+        bananaCountLabel.accessibilityLabel = "바나나재고"
+        bananaCountLabel.accessibilityValue = "\(fruitStore.getStockCountToString(of: .banana)!)개"
+        
+        mangoCountLabel.accessibilityLabel = "망고재고"
+        mangoCountLabel.accessibilityValue = "\(fruitStore.getStockCountToString(of: .mango)!)개"
+        
+        pineappleCountLabel.accessibilityLabel = "파인애플재고"
+        pineappleCountLabel.accessibilityValue = "\(fruitStore.getStockCountToString(of: .pineapple)!)개"
+        
+        kiwiCountLabel.accessibilityLabel = "키위재고"
+        kiwiCountLabel.accessibilityValue = "\(fruitStore.getStockCountToString(of: .kiwi)!)개"
     }
     
     @IBAction private func touchUpDismissButton(_ sender: UIButton) {
